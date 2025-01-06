@@ -1,12 +1,12 @@
-import React from 'react'
-import BasicLayout from '../layouts/BasicLayout'
+import React from "react";
+import BasicLayout from "../layouts/BasicLayout";
 
 const MainPage = () => {
   return (
     <BasicLayout>
-        <div className={'text-3xl'}>Main Page</div>
+      <div className={"text-3xl"}>Main Page</div>
     </BasicLayout>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;
