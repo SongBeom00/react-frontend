@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getOne } from "../../api/todoApi";
 import useCustomMove from "../../hooks/useCustomMove";
 
-const initState = {
+const initState = { //빈 객체 생성
   tno: 0,
   title: "",
   writer: "",
@@ -13,7 +13,7 @@ const initState = {
 const ReadComponent = ({ tno }) => {
   const [todo, setTodo] = useState(initState);
 
-  const { moveToList } = useCustomMove();
+  const { moveToList , moveToModify } = useCustomMove();
 
   useEffect(() => {
     getOne(tno).then((data) => {
@@ -21,6 +21,8 @@ const ReadComponent = ({ tno }) => {
       setTodo(data);
     });
   }, [tno]);
+
+  console.log(todo);
   return (
     <div className="boreder-2 border-sky-200 mt-10 m-2 p-4">
       {makeDiv("Tno", todo.tno)}
@@ -33,9 +35,18 @@ const ReadComponent = ({ tno }) => {
         <button
           type="button"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-          onClick={() => moveToList(todo)}
+          onClick={() => moveToList()}
         >
           Move to List
+        </button>
+
+
+        <button
+            type="button"
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded ml-4"
+            onClick={() => moveToModify(todo.tno)}
+        >
+          Move to Modify
         </button>
       </div>
     </div>

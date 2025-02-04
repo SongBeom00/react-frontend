@@ -5,7 +5,6 @@ const AboutPage = () => {
   return (
     <BasicLayout>
         <div>About Page</div>
-        
     </BasicLayout>
   )
 }

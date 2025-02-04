@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 const Loading = <div>Loading...</div>;
 
-const TodoList = lazy(() => import("../pages/todo/ListPage")); //TodoIndexPage를 불러온다.
+const TodoList = lazy(() => import("../pages/todo/ListPage")); //TodoIndexPage 를 불러온다.
 
 const TodoRead = lazy(() => import("../pages/todo/ReadPage"));
 
@@ -23,7 +23,7 @@ const todoRouter = () => {
     },
     {
       path: "",
-      element: <Navigate replace={true} to={"list"} />,
+      element: <Navigate replace={true} to={"list"} />, // todo/list 로 이동한다. -> Redirect
     },
     {
       path: "read/:tno",

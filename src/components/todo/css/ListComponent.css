@@ -1,0 +1,82 @@
+/* 컨테이너 스타일 */
+.list-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 스타일 */
+.list-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 테이블 기본 스타일 */
+.todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 테이블 헤더 스타일 */
+.todo-table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 테이블 셀 스타일 */
+.todo-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* 행 호버 효과 */
+.todo-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 완료 상태 스타일 */
+.status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+/* 미완료 상태 스타일 */
+.status-pending {
+    color: red;
+    font-weight: bold;
+}
+
+/* 할 일이 없을 때 메시지 스타일 */
+.no-tasks {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px;
+}
+
+
+/* 제목 셀 클릭 시 포인터 표시 */
+.title-cell {
+    cursor: pointer;                /* 마우스를 올리면 포인터로 변경 */
+    color: #007BFF;                 /* 기본 글씨 색상 (파란색) */
+    font-weight: 500;               /* 글씨 두께 조절 */
+    transition: color 0.3s, transform 0.2s; /* 부드러운 전환 효과 */
+}
+
+/* 제목 셀에 마우스를 올렸을 때 효과 */
+.title-cell:hover {
+    color: #0056b3;                 /* 마우스를 올렸을 때 더 진한 파란색으로 변경 */
+    text-decoration: underline;     /* 밑줄 추가로 강조 */
+    transform: scale(1.02);         /* 약간 확대 효과로 시각적 강조 */
+}

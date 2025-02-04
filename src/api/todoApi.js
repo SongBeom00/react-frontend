@@ -16,3 +16,11 @@ export const getList = async (pageParam) => {
 
   return res.data; // async/await -> 반환 타입은 promise이다.
 };
+
+export const postAdd = async (todoObj) => {
+
+  //JSON.stringify(todoObj) -> JSON 문자열로 변환 했지만 axios 는 자동으로 변환해준다.
+  const res = await axios.post(`${prefix}`, todoObj);
+
+  return res.data;
+}

@@ -3,11 +3,12 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import BasicLayout from "../../layouts/BasicLayout";
 
 const IndexPage = () => {
+  
   const navigate = useNavigate();
 
   const handleClickList = useCallback(() => {
     navigate({ pathname: "list" });
-  });
+  },[]);
 
   const handleClickAdd = useCallback(() => {
     navigate({ pathname: "add" });
