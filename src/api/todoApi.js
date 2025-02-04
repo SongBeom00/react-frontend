@@ -18,9 +18,21 @@ export const getList = async (pageParam) => {
 };
 
 export const postAdd = async (todoObj) => {
-
   //JSON.stringify(todoObj) -> JSON 문자열로 변환 했지만 axios 는 자동으로 변환해준다.
   const res = await axios.post(`${prefix}`, todoObj);
+
+  return res.data;
+}
+
+export const putOne = async (todo) => {
+  const res = await axios.put(`${prefix}/${todo.tno}`,todo);
+
+  return res.data;
+}
+
+
+export const deleteOne = async (tno) => {
+  const res = await axios.delete(`${prefix}/${tno}`);
 
   return res.data;
 }
