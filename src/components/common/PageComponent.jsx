@@ -1,6 +1,5 @@
 import React from 'react';
 import {Pagination} from "react-bootstrap";
-import {current} from "@reduxjs/toolkit";
 import "./css/PageComponent.css";
 
 const PageComponent = ({serverData, movePage}) => {
@@ -17,14 +16,14 @@ const PageComponent = ({serverData, movePage}) => {
             />
 
             {/* 이전 페이지로 이동 */}
-            {serverData.prev && (
+
                 <Pagination.Prev
-                    onClick={() => movePage({ page: serverData.prevPage })}
+                    onClick={() => movePage({ page: serverData.current - 1 })}
+                    disabled={serverData.current === 1}
                 />
-            )}
 
             {/* 페이지 번호 표시 */}
-            {serverData.pageNumList.map(pageNum => (
+            {serverData.pageNumList.map((pageNum) => (
                 <Pagination.Item
                     key={pageNum}
                     active={pageNum === serverData.current}
@@ -35,17 +34,16 @@ const PageComponent = ({serverData, movePage}) => {
             ))}
 
             {/* 다음 페이지로 이동 */}
-            {serverData.next && (
+
                 <Pagination.Next
-                    onClick={() => movePage({ page: serverData.nextPage})}
-                    disabled={current === serverData.totalPage}
+                    onClick={() => movePage({ page: serverData.current + 1 })}
+                    disabled={serverData.current === serverData.totalPage}
                 />
-            )}
 
             {/* 마지막 페이지로 이동 */}
             <Pagination.Last
                 onClick={() => movePage({ page: serverData.totalPage })}
-                disabled={current === serverData.totalPage}
+                disabled={serverData.current === serverData.totalPage}
             />
         </Pagination>
     );

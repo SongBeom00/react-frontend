@@ -1,53 +1,34 @@
 import { lazy, Suspense } from "react";
 import { Navigate } from "react-router-dom";
+import Loading from "../components/common/Loading";
 
-const Loading = <div>Loading...</div>;
+// Suspense 로 감싸는 공통 함수
+const loadComponent = (Component) => (
+    <Suspense fallback={<Loading />}>
+      <Component />
+    </Suspense>
+);
 
-const TodoList = lazy(() => import("../pages/todo/ListPage")); //TodoIndexPage 를 불러온다.
-
-const TodoRead = lazy(() => import("../pages/todo/ReadPage"));
-
-const TodoAdd = lazy(() => import("../pages/todo/AddPage"));
-
-const TodoModify = lazy(() => import("../pages/todo/ModifyPage"));
+// Lazy 로딩된 컴포넌트 목록
+const routes = [
+  { path: "list", component: lazy(() => import("../pages/todo/ListPage")) },
+  { path: "read/:tno", component: lazy(() => import("../pages/todo/ReadPage")) },
+  { path: "add", component: lazy(() => import("../pages/todo/AddPage")) },
+  { path: "modify/:tno", component: lazy(() => import("../pages/todo/ModifyPage")) },
+];
 
 const todoRouter = () => {
   return [
-    {
-      path: "list",
-      element: (
-        <Suspense fallback={Loading}>
-          <TodoList />
-        </Suspense>
-      ),
-    },
+    // 동적 라우팅 처리
+    ...routes.map(({ path, component }) => ({
+      path,
+      element: loadComponent(component),
+    })),
+
+    // 기본 경로 리디렉션 설정
     {
       path: "",
-      element: <Navigate replace={true} to={"list"} />, // todo/list 로 이동한다. -> Redirect
-    },
-    {
-      path: "read/:tno",
-      element: (
-        <Suspense fallback={Loading}>
-          <TodoRead />
-        </Suspense>
-      ),
-    },
-    {
-      path: "add",
-      element: (
-        <Suspense fallback={Loading}>
-          <TodoAdd />
-        </Suspense>
-      ),
-    },
-    {
-      path: "modify/:tno",
-      element: (
-        <Suspense fallback={Loading}>
-          <TodoModify />
-        </Suspense>
-      ),
+      element: <Navigate replace to="list" />, // 기본 경로로 이동
     },
   ];
 };
