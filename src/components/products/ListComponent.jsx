@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import useCustomMove from "../../hooks/useCustomMove";
-import {getList, host} from "../../api/productsApi";
-import fetchingModal from "../common/FetchingModal";
+import {getList} from "../../api/productsApi";
 import FetchingModal from "../common/FetchingModal";
 import PageComponent from "../common/PageComponent";
 

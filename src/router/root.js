@@ -3,6 +3,7 @@ import {lazy, Suspense} from "react";
 import todoRouter from "./todoRouter";
 import productsRouter from "./productsRouter";
 import Loading from "../components/common/Loading";
+import memberRouter from "./memberRouter";
 
 
 const Main = lazy(() => import("../pages/MainPage")); //MainPage를 불러온다.
@@ -53,6 +54,10 @@ const root = createBrowserRouter([
             </Suspense>
         ),
         children: productsRouter(),
+    },
+    {
+        path :"member",
+        children : memberRouter()
     }
 ]);
 
