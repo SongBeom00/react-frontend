@@ -1,8 +1,7 @@
 import axios from "axios";
 
-export const API_SERVER_HOST = "http://localhost:8080";
 
-const prefix = `${API_SERVER_HOST}/api/todo`;
+const prefix = `${process.env.REACT_APP_SPRING_API_URL}/api/todo`;
 
 export const getOne = async (tno) => {
   const res = await axios.get(`${prefix}/${tno}`);
