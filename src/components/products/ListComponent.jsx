@@ -7,7 +7,7 @@ import PageComponent from "../common/PageComponent";
 
 const initState = {
     dtoList: [],
-    pageRequestDto: null,
+    pageRequestDTO: null,
     pageNumList: [],
     prev: false,
     next: false,

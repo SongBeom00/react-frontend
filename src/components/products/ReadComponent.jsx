@@ -81,7 +81,7 @@ const ReadComponent = ({pno}) => {
                             alt="product"
                             key={i}
                             className="p-4 w-1/2"
-                            src={`${process.env.REACT_APP_SPRING_API_URL}/api/product/view/${imgFile}`}
+                            src={`http://localhost:8080/api/product/view/${imgFile}`}
                         />
                     ))
                 ) : (

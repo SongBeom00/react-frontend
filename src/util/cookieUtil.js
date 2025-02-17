@@ -5,7 +5,7 @@ const cookie = new Cookies();
 
 
 
-export const setCookie = (key, value, days) => {
+export const setCookie = (key, value, days = 1) => {
     const expires = new Date();
     expires.setUTCDate(expires.getUTCDate() + days); // 보관기한
 
